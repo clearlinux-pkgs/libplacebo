@@ -1,4 +1,4 @@
-3.120.2
+3.120.3
 libepoxy-dev
 pkgconfig(epoxy)
 pkgconfig(glfw3)
