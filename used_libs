@@ -10,6 +10,5 @@ libglfw.so.3
 libglslang.so.11
 liblcms2.so.2
 libm.so.6
-libpthread.so.0
 libstdc++.so.6
 libvulkan.so.1
