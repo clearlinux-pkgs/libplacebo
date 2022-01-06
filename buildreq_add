@@ -1,6 +1,5 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-Mako
 SDL2-dev
 SDL2_image-dev
 SPIRV-Headers-dev
@@ -10,3 +9,4 @@ Vulkan-Loader-dev
 glslang-dev
 glslang-staticdev
 lcms2-dev
+pypi(mako)
