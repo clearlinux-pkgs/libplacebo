@@ -2,7 +2,6 @@
 # picked up automatically. One name per line, no whitespace.
 SDL2-dev
 SDL2_image-dev
-SPIRV-Headers-dev
 SPIRV-Tools-dev
 Vulkan-Headers-dev
 Vulkan-Loader-dev
@@ -10,3 +9,4 @@ glslang-dev
 glslang-staticdev
 lcms2-dev
 pypi(mako)
+llvm-dev

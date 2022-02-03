@@ -4,7 +4,7 @@
 #
 Name     : libplacebo
 Version  : 4.157.0
-Release  : 18
+Release  : 19
 URL      : https://github.com/haasn/libplacebo/archive/v4.157.0/libplacebo-4.157.0.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v4.157.0/libplacebo-4.157.0.tar.gz
 Summary  : No detailed summary available
@@ -15,7 +15,6 @@ Requires: libplacebo-lib = %{version}-%{release}
 Requires: libplacebo-license = %{version}-%{release}
 BuildRequires : SDL2-dev
 BuildRequires : SDL2_image-dev
-BuildRequires : SPIRV-Headers-dev
 BuildRequires : SPIRV-Tools-dev
 BuildRequires : Vulkan-Headers-dev
 BuildRequires : Vulkan-Loader-dev
@@ -24,6 +23,7 @@ BuildRequires : glslang-dev
 BuildRequires : glslang-staticdev
 BuildRequires : lcms2-dev
 BuildRequires : libepoxy-dev
+BuildRequires : llvm-dev
 BuildRequires : pkgconfig(epoxy)
 BuildRequires : pkgconfig(glfw3)
 BuildRequires : pkgconfig(libavcodec)
@@ -88,7 +88,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641469343
+export SOURCE_DATE_EPOCH=1643901958
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
