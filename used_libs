@@ -11,4 +11,5 @@ libglslang.so.11
 liblcms2.so.2
 libm.so.6
 libstdc++.so.6
+libunwind.so.8
 libvulkan.so.1
