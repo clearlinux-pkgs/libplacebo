@@ -4,7 +4,7 @@
 #
 Name     : libplacebo
 Version  : 4.208.0
-Release  : 21
+Release  : 22
 URL      : https://github.com/haasn/libplacebo/archive/v4.208.0/libplacebo-4.208.0.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v4.208.0/libplacebo-4.208.0.tar.gz
 Summary  : No detailed summary available
