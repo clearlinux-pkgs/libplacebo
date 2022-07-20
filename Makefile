@@ -1,5 +1,5 @@
 PKG_NAME := libplacebo
-URL = https://github.com/haasn/libplacebo/archive/v4.192.1/libplacebo-4.192.1.tar.gz
+URL = https://github.com/haasn/libplacebo/archive/v4.208.0/libplacebo-4.208.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
