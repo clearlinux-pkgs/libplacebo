@@ -1,0 +1,26 @@
+From f7492e33107c89f338fc9bf38808b0d6c0493a8e Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Fri, 14 Oct 2022 10:45:19 -0700
+Subject: [PATCH] Remove static libs that should be part of the shared glslang
+
+---
+ src/meson.build | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/src/meson.build b/src/meson.build
+index 4ef7d2a..dc311d4 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -94,9 +94,7 @@ else
+   glslang_deps = [
+     cxx.find_library('glslang',             required: glslang_req),
+     cxx.find_library('MachineIndependent',  required: false),
+-    cxx.find_library('OSDependent',         required: glslang_req),
+     cxx.find_library('HLSL',                required: glslang_req),
+-    cxx.find_library('OGLCompiler',         required: glslang_req),
+     cxx.find_library('GenericCodeGen',      required: false),
+     cxx.find_library('SPVRemapper',         required: glslang_req),
+     cxx.find_library('SPIRV',               required: glslang_req),
+-- 
+2.37.3
+

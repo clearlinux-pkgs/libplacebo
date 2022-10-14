@@ -6,7 +6,6 @@ SPIRV-Tools-dev
 Vulkan-Headers-dev
 Vulkan-Loader-dev
 glslang-dev
-glslang-staticdev
 lcms2-dev
 pypi(mako)
 llvm-dev

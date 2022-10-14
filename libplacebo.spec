@@ -4,7 +4,7 @@
 #
 Name     : libplacebo
 Version  : 4.208.0
-Release  : 23
+Release  : 24
 URL      : https://github.com/haasn/libplacebo/archive/v4.208.0/libplacebo-4.208.0.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v4.208.0/libplacebo-4.208.0.tar.gz
 Summary  : No detailed summary available
@@ -20,7 +20,6 @@ BuildRequires : Vulkan-Headers-dev
 BuildRequires : Vulkan-Loader-dev
 BuildRequires : buildreq-meson
 BuildRequires : glslang-dev
-BuildRequires : glslang-staticdev
 BuildRequires : lcms2-dev
 BuildRequires : libepoxy-dev
 BuildRequires : llvm-dev
@@ -32,6 +31,8 @@ BuildRequires : pkgconfig(libavutil)
 BuildRequires : pkgconfig(libunwind)
 BuildRequires : pkgconfig(spirv-cross-c-shared)
 BuildRequires : pypi(mako)
+Patch1: backport-glsl-glslang-move-resources-declaration-to-C-file.patch
+Patch2: 0001-Remove-static-libs-that-should-be-part-of-the-shared.patch
 
 %description
 # libplacebo
@@ -83,13 +84,15 @@ license components for the libplacebo package.
 %prep
 %setup -q -n libplacebo-4.208.0
 cd %{_builddir}/libplacebo-4.208.0
+%patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1658343970
+export SOURCE_DATE_EPOCH=1665769644
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -113,8 +116,8 @@ meson test -C builddir --print-errorlogs
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/libplacebo
-cp %{_builddir}/libplacebo-4.208.0/LICENSE %{buildroot}/usr/share/package-licenses/libplacebo/7fab4cd4eb7f499d60fe183607f046484acd6e2d
-cp %{_builddir}/libplacebo-4.208.0/demos/LICENSE %{buildroot}/usr/share/package-licenses/libplacebo/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/libplacebo-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libplacebo/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+cp %{_builddir}/libplacebo-%{version}/demos/LICENSE %{buildroot}/usr/share/package-licenses/libplacebo/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
