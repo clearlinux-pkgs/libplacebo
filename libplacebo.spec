@@ -4,7 +4,7 @@
 #
 Name     : libplacebo
 Version  : 4.208.0
-Release  : 24
+Release  : 25
 URL      : https://github.com/haasn/libplacebo/archive/v4.208.0/libplacebo-4.208.0.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v4.208.0/libplacebo-4.208.0.tar.gz
 Summary  : No detailed summary available
@@ -31,6 +31,9 @@ BuildRequires : pkgconfig(libavutil)
 BuildRequires : pkgconfig(libunwind)
 BuildRequires : pkgconfig(spirv-cross-c-shared)
 BuildRequires : pypi(mako)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 Patch1: backport-glsl-glslang-move-resources-declaration-to-C-file.patch
 Patch2: 0001-Remove-static-libs-that-should-be-part-of-the-shared.patch
 
@@ -92,15 +95,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1665769644
+export SOURCE_DATE_EPOCH=1674165409
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dvulkan=enabled \
 -Dglslang=enabled \
 -Dshaderc=disabled \
@@ -116,8 +119,8 @@ meson test -C builddir --print-errorlogs
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/libplacebo
-cp %{_builddir}/libplacebo-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libplacebo/7fab4cd4eb7f499d60fe183607f046484acd6e2d
-cp %{_builddir}/libplacebo-%{version}/demos/LICENSE %{buildroot}/usr/share/package-licenses/libplacebo/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/libplacebo-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libplacebo/7fab4cd4eb7f499d60fe183607f046484acd6e2d || :
+cp %{_builddir}/libplacebo-%{version}/demos/LICENSE %{buildroot}/usr/share/package-licenses/libplacebo/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
