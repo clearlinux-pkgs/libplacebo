@@ -1,9 +1,0 @@
-4.208.0
-libepoxy-dev
-pkgconfig(epoxy)
-pkgconfig(glfw3)
-pkgconfig(libavcodec)
-pkgconfig(libavformat)
-pkgconfig(libavutil)
-pkgconfig(libunwind)
-pkgconfig(spirv-cross-c-shared)
