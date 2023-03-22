@@ -9,3 +9,5 @@ glslang-dev
 lcms2-dev
 pypi(mako)
 llvm-dev
+pypi(glad)
+pypi-glad

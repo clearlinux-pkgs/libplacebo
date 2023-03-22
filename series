@@ -1,2 +1,1 @@
-backport-glsl-glslang-move-resources-declaration-to-C-file.patch
-0001-Remove-static-libs-that-should-be-part-of-the-shared.patch
+#0001-Remove-static-libs-that-should-be-part-of-the-shared.patch

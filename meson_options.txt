@@ -2,7 +2,7 @@
 option('vulkan', type: 'feature', value: 'auto',
        description: 'Vulkan-based renderer')
 
-option('vulkan-link', type: 'boolean', value: true,
+option('vk-proc-addr', type: 'feature', value: 'auto',
        description: 'Link directly against vkGetInstanceProcAddr from libvulkan.so')
 
 option('vulkan-registry', type: 'string', value: '',
@@ -10,6 +10,9 @@ option('vulkan-registry', type: 'string', value: '',
 
 option('opengl', type: 'feature', value: 'auto',
        description: 'OpenGL-based renderer')
+
+option('gl-proc-addr', type: 'feature', value: 'auto',
+       description: 'Enable built-in OpenGL loader (uses dlopen, dlsym...)')
 
 option('d3d11', type: 'feature', value: 'auto',
        description: 'Direct3D 11 based renderer')
@@ -22,6 +25,12 @@ option('shaderc', type: 'feature', value: 'auto',
 
 option('lcms', type: 'feature', value: 'auto',
        description: 'LittleCMS 2 support')
+
+option('dovi', type: 'feature', value: 'auto',
+       description: 'Dolby Vision reshaping support')
+
+option('libdovi', type: 'feature', value: 'auto',
+       description: 'libdovi support')
 
 # Miscellaneous
 option('demos', type: 'boolean', value: true,
