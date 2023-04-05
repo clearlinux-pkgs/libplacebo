@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : libplacebo
-Version  : 5.264.0
-Release  : 27
-URL      : https://github.com/haasn/libplacebo/archive/v5.264.0/libplacebo-5.264.0.tar.gz
-Source0  : https://github.com/haasn/libplacebo/archive/v5.264.0/libplacebo-5.264.0.tar.gz
+Version  : 5.264.1
+Release  : 28
+URL      : https://github.com/haasn/libplacebo/archive/v5.264.1/libplacebo-5.264.1.tar.gz
+Source0  : https://github.com/haasn/libplacebo/archive/v5.264.1/libplacebo-5.264.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 LGPL-2.1 LGPL-2.1+
@@ -85,15 +85,15 @@ license components for the libplacebo package.
 
 
 %prep
-%setup -q -n libplacebo-5.264.0
-cd %{_builddir}/libplacebo-5.264.0
+%setup -q -n libplacebo-5.264.1
+cd %{_builddir}/libplacebo-5.264.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679498936
+export SOURCE_DATE_EPOCH=1680726724
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

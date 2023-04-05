@@ -1,6 +1,5 @@
-5.264.0
+5.264.1
 mesa-dev
-pkgconfig(dovi)
 pkgconfig(glfw3)
 pkgconfig(libavcodec)
 pkgconfig(libavformat)
