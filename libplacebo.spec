@@ -5,7 +5,7 @@
 #
 Name     : libplacebo
 Version  : 5.264.1
-Release  : 28
+Release  : 29
 URL      : https://github.com/haasn/libplacebo/archive/v5.264.1/libplacebo-5.264.1.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v5.264.1/libplacebo-5.264.1.tar.gz
 Summary  : No detailed summary available
