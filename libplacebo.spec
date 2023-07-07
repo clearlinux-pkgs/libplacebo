@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : libplacebo
-Version  : 6.292.0
-Release  : 31
-URL      : https://github.com/haasn/libplacebo/archive/v6.292.0/libplacebo-6.292.0.tar.gz
-Source0  : https://github.com/haasn/libplacebo/archive/v6.292.0/libplacebo-6.292.0.tar.gz
+Version  : 5.264.1
+Release  : 32
+URL      : https://github.com/haasn/libplacebo/archive/v5.264.1/libplacebo-5.264.1.tar.gz
+Source0  : https://github.com/haasn/libplacebo/archive/v5.264.1/libplacebo-5.264.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 LGPL-2.1 LGPL-2.1+
@@ -85,10 +85,10 @@ license components for the libplacebo package.
 
 
 %prep
-%setup -q -n libplacebo-6.292.0
-cd %{_builddir}/libplacebo-6.292.0
+%setup -q -n libplacebo-5.264.1
+cd %{_builddir}/libplacebo-5.264.1
 pushd ..
-cp -a libplacebo-6.292.0 buildavx2
+cp -a libplacebo-5.264.1 buildavx2
 popd
 
 %build
@@ -96,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688742014
+export SOURCE_DATE_EPOCH=1688743600
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -149,7 +149,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/libplacebo/dither.h
 /usr/include/libplacebo/dummy.h
 /usr/include/libplacebo/filters.h
-/usr/include/libplacebo/gamut_mapping.h
 /usr/include/libplacebo/gpu.h
 /usr/include/libplacebo/log.h
 /usr/include/libplacebo/opengl.h
@@ -178,8 +177,8 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libplacebo.so.292
-/usr/lib64/libplacebo.so.292
+/V3/usr/lib64/libplacebo.so.264
+/usr/lib64/libplacebo.so.264
 
 %files license
 %defattr(0644,root,root,0755)
