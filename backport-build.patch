@@ -1,0 +1,11 @@
+--- libplacebo-6.292.1/src/glsl/glslang.cc~	2023-08-03 19:49:06.000000000 +0000
++++ libplacebo-6.292.1/src/glsl/glslang.cc	2023-08-25 15:40:51.620651933 +0000
+@@ -32,7 +32,7 @@
+ 
+ #if (GLSLANG_VERSION_MAJOR * 1000 + GLSLANG_VERSION_MINOR) >= 11013
+ #include <glslang/Public/ResourceLimits.h>
+-#define DefaultTBuiltInResource *GetDefaultResources()
++//#define DefaultTBuiltInResource *GetDefaultResources()
+ #endif
+ 
+ using namespace glslang;

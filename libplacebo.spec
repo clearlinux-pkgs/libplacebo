@@ -5,12 +5,15 @@
 #
 Name     : libplacebo
 Version  : 6.292.1
-Release  : 38
+Release  : 39
 URL      : https://github.com/haasn/libplacebo/archive/v6.292.1/libplacebo-6.292.1.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v6.292.1/libplacebo-6.292.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 LGPL-2.1 LGPL-2.1+
+Requires: libplacebo-bin = %{version}-%{release}
+Requires: libplacebo-lib = %{version}-%{release}
+Requires: libplacebo-license = %{version}-%{release}
 BuildRequires : SDL2-dev
 BuildRequires : SDL2_image-dev
 BuildRequires : SPIRV-Tools-dev
@@ -33,6 +36,7 @@ BuildRequires : pypi-glad
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
+Patch1: backport-build.patch
 
 %description
 # libplacebo
@@ -43,9 +47,48 @@ BuildRequires : pypi-glad
 [![PayPal](https://img.shields.io/badge/donate-PayPal-blue.svg?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFJUTMPSZEAHC)
 [![Patreon](https://img.shields.io/badge/pledge-Patreon-red.svg?logo=patreon)](https://www.patreon.com/haasn)
 
+%package bin
+Summary: bin components for the libplacebo package.
+Group: Binaries
+Requires: libplacebo-license = %{version}-%{release}
+
+%description bin
+bin components for the libplacebo package.
+
+
+%package dev
+Summary: dev components for the libplacebo package.
+Group: Development
+Requires: libplacebo-lib = %{version}-%{release}
+Requires: libplacebo-bin = %{version}-%{release}
+Provides: libplacebo-devel = %{version}-%{release}
+Requires: libplacebo = %{version}-%{release}
+
+%description dev
+dev components for the libplacebo package.
+
+
+%package lib
+Summary: lib components for the libplacebo package.
+Group: Libraries
+Requires: libplacebo-license = %{version}-%{release}
+
+%description lib
+lib components for the libplacebo package.
+
+
+%package license
+Summary: license components for the libplacebo package.
+Group: Default
+
+%description license
+license components for the libplacebo package.
+
+
 %prep
 %setup -q -n libplacebo-6.292.1
 cd %{_builddir}/libplacebo-6.292.1
+%patch -P 1 -p1
 pushd ..
 cp -a libplacebo-6.292.1 buildavx2
 popd
@@ -55,7 +98,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1692976428
+export SOURCE_DATE_EPOCH=1692978176
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -92,3 +135,55 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
 %defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
+/V3/usr/bin/plplay
+/usr/bin/plplay
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/libplacebo/colorspace.h
+/usr/include/libplacebo/common.h
+/usr/include/libplacebo/config.h
+/usr/include/libplacebo/d3d11.h
+/usr/include/libplacebo/dispatch.h
+/usr/include/libplacebo/dither.h
+/usr/include/libplacebo/dummy.h
+/usr/include/libplacebo/filters.h
+/usr/include/libplacebo/gamut_mapping.h
+/usr/include/libplacebo/gpu.h
+/usr/include/libplacebo/log.h
+/usr/include/libplacebo/opengl.h
+/usr/include/libplacebo/renderer.h
+/usr/include/libplacebo/shaders.h
+/usr/include/libplacebo/shaders/colorspace.h
+/usr/include/libplacebo/shaders/custom.h
+/usr/include/libplacebo/shaders/deinterlacing.h
+/usr/include/libplacebo/shaders/dithering.h
+/usr/include/libplacebo/shaders/film_grain.h
+/usr/include/libplacebo/shaders/icc.h
+/usr/include/libplacebo/shaders/lut.h
+/usr/include/libplacebo/shaders/sampling.h
+/usr/include/libplacebo/swapchain.h
+/usr/include/libplacebo/tone_mapping.h
+/usr/include/libplacebo/utils/dav1d.h
+/usr/include/libplacebo/utils/dav1d_internal.h
+/usr/include/libplacebo/utils/dolbyvision.h
+/usr/include/libplacebo/utils/frame_queue.h
+/usr/include/libplacebo/utils/libav.h
+/usr/include/libplacebo/utils/libav_internal.h
+/usr/include/libplacebo/utils/upload.h
+/usr/include/libplacebo/vulkan.h
+/usr/lib64/libplacebo.so
+/usr/lib64/pkgconfig/libplacebo.pc
+
+%files lib
+%defattr(-,root,root,-)
+/V3/usr/lib64/libplacebo.so.292
+/usr/lib64/libplacebo.so.292
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/libplacebo/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+/usr/share/package-licenses/libplacebo/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
