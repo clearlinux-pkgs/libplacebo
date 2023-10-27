@@ -1,11 +1,6 @@
-libSDL2-2.0.so.0
 libSPIRV.so.13
-libavcodec.so.58
-libavformat.so.58
-libavutil.so.56
 libc.so.6
 libgcc_s.so.1
-libglfw.so.3
 liblcms2.so.2
 libm.so.6
 libstdc++.so.6

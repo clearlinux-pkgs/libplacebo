@@ -2,3 +2,4 @@
 -Dglslang=enabled
 -Dshaderc=disabled
 -Dcpp_args=-I/usr/include/glslang
+-Ddemos=false
