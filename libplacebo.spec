@@ -7,7 +7,7 @@
 #
 Name     : libplacebo
 Version  : 6.338.1
-Release  : 49
+Release  : 50
 URL      : https://github.com/haasn/libplacebo/archive/v6.338.1/libplacebo-6.338.1.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v6.338.1/libplacebo-6.338.1.tar.gz
 Summary  : No detailed summary available
@@ -30,6 +30,7 @@ BuildRequires : pkgconfig(libavcodec)
 BuildRequires : pkgconfig(libavformat)
 BuildRequires : pkgconfig(libavutil)
 BuildRequires : pkgconfig(libunwind)
+BuildRequires : pkgconfig(libxxhash)
 BuildRequires : pkgconfig(spirv-cross-c-shared)
 BuildRequires : pypi(glad)
 BuildRequires : pypi(mako)
@@ -88,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1698445475
+export SOURCE_DATE_EPOCH=1698943051
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
