@@ -7,7 +7,7 @@
 #
 Name     : libplacebo
 Version  : 6.338.1
-Release  : 52
+Release  : 53
 URL      : https://github.com/haasn/libplacebo/archive/v6.338.1/libplacebo-6.338.1.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v6.338.1/libplacebo-6.338.1.tar.gz
 Summary  : No detailed summary available
