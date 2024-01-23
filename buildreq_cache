@@ -1,9 +1,4 @@
-6.338.1
-mesa-dev
-pkgconfig(glfw3)
-pkgconfig(libavcodec)
-pkgconfig(libavformat)
-pkgconfig(libavutil)
+6.338.2
 pkgconfig(libunwind)
 pkgconfig(libxxhash)
 pkgconfig(spirv-cross-c-shared)
