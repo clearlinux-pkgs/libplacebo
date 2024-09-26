@@ -7,7 +7,7 @@
 #
 Name     : libplacebo
 Version  : 7.349.0
-Release  : 73
+Release  : 74
 URL      : https://github.com/haasn/libplacebo/archive/v7.349.0/libplacebo-7.349.0.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v7.349.0/libplacebo-7.349.0.tar.gz
 Summary  : No detailed summary available
