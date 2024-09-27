@@ -1,5 +1,5 @@
 -Dvulkan=enabled
--Dglslang=enabled
+-Dglslang=disabled
 -Dshaderc=disabled
 -Dcpp_args=-I/usr/include/glslang
 -Ddemos=false
