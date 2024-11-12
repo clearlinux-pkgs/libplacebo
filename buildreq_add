@@ -11,4 +11,4 @@ pypi(mako)
 llvm-dev
 pypi(glad)
 pypi-glad
-shaderc
+shaderc-dev
